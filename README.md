@@ -21,8 +21,6 @@ GGVM is built using a combination of web technologies:
 - 🧱 HTML5 for structure  
 - 🎨 CSS3 for styling  
 - 🧠 JavaScript for interactivity  
-- 🐘 PHP for the backend (user management, article creation)  
-- 🗃 MySQL (or any DB you prefer) for data storage
 
 ---
 
