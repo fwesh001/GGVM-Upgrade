@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Daily Physical Exercise — GGVM</title>
+  <link rel="stylesheet" href="../../style.css">
+  <style>
+    .exercise-container {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 24px;
+      background: #f8fafc;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(184,134,11,0.08);
+    }
+    .exercise-header {
+      border-bottom: 3px solid #b8860b;
+      padding-bottom: 20px;
+      margin-bottom: 24px;
+    }
+    .week-selector {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 24px;
+    }
+    .week-btn {
+      padding: 10px 20px;
+      background: #f0f0f0;
+      border: 2px solid #b8860b;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+      color: #6a1b9a;
+      transition: all 0.3s;
+    }
+    .week-btn.active {
+      background: linear-gradient(120deg, #b8860b 0%, #6a1b9a 100%);
+      color: #fff;
+      box-shadow: 0 4px 12px rgba(106,27,154,0.18);
+    }
+    .week-btn:hover {
+      transform: scale(1.05);
+    }
+    .exercise-content {
+      line-height: 1.8;
+      font-size: 1.05rem;
+      color: #222;
+      animation: fadeInUp 0.6s;
+    }
+    .exercise-item {
+      background: #fff;
+      border-left: 4px solid #b8860b;
+      padding: 20px;
+      margin: 20px 0;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(106,27,154,0.06);
+    }
+    .exercise-title {
+      color: #6a1b9a;
+      font-weight: 700;
+      font-size: 1.15rem;
+      margin-bottom: 12px;
+    }
+    .exercise-instructions {
+      list-style: none;
+      padding-left: 0;
+    }
+    .exercise-instructions li {
+      margin: 12px 0;
+      padding-left: 24px;
+      position: relative;
+    }
+    .exercise-instructions li:before {
+      content: "→";
+      position: absolute;
+      left: 0;
+      color: #b8860b;
+      font-weight: bold;
+    }
+    .rep-guide {
+      background: #f3e9fc;
+      padding: 12px 16px;
+      border-radius: 6px;
+      margin-top: 12px;
+      color: #6a1b9a;
+      font-weight: 600;
+    }
+    .nav-link {
+      display: inline-block;
+      margin-top: 24px;
+      padding: 12px 24px;
+      background: linear-gradient(120deg, #b8860b 0%, #6a1b9a 100%);
+      color: #fff;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: 600;
+      transition: box-shadow 0.3s;
+    }
+    .nav-link:hover {
+      box-shadow: 0 6px 24px rgba(106,27,154,0.22);
+    }
+  </style>
+</head>
+<body>
+  <div class="exercise-container">
+    <div class="exercise-header">
+      <h1>Daily Physical Exercise</h1>
+      <p style="font-size: 0.9rem; color: #6a1b9a;">28-Day Physical Wellness Program</p>
+    </div>
+    
+    <div class="week-selector" id="weekSelector"></div>
+    
+    <div class="exercise-content" id="exerciseContent"></div>
+
+    <a href="../../index.html" class="nav-link">← Back to Home</a>
+  </div>
+
+  <script src="../../script.js"></script>
+  <script>
+    const exercises = {
+      week1: {
+        week: 1,
+        title: "DAY ONE - STANDING UP EXERCISES",
+        exercises: [
+          {
+            num: 1,
+            name: "Full Body Stretch & Touch",
+            instructions: [
+              "Stand at attention with your feet together",
+              "Stretch both hands out wide above your head",
+              "Move your stretched hands downward to touch your head",
+              "Continue moving hands down to touch your neck",
+              "Move hands down to touch your knee caps",
+              "Bend and touch the toes of your legs",
+              "Lift your hands back up from toes to knee caps, then neck, head",
+              "Spread hands wide above your head again",
+              "Repeat the entire sequence"
+            ],
+            reps: "Start with 20 repetitions. Build strength to reach 70-100 repetitions"
+          },
+          {
+            num: 2,
+            name: "Jump & Clap Coordination",
+            instructions: [
+              "Stand at ease with legs spread very wide apart",
+              "Spread your hands wide open above your head",
+              "Jump up and down while clapping hands above your head",
+              "Synchronize the clap with your legs coming to attention (closing together)",
+              "As legs close at attention, hands clap together above head",
+              "Repeat the jumping and clapping motion"
+            ],
+            reps: "Start with 20 repetitions. Build strength to reach 70-100 repetitions"
+          },
+          {
+            num: 3,
+            name: "Waist Twist Dance Move",
+            instructions: [
+              "Stand at attention with your legs together",
+              "Place both hands on your waist",
+              "Keep your body firm and erect",
+              "Swing your waist and knee area low, bending in a twisting motion (like a twist dance)",
+              "Move down low in style and controlled motion",
+              "Come back up to standing erect position",
+              "Repeat the twisting motion"
+            ],
+            reps: "Start with 20 repetitions. Build strength to reach 70-100 repetitions"
+          },
+          {
+            num: 4,
+            name: "Side Arm Swings",
+            instructions: [
+              "Stand at attention with your legs together",
+              "Put your left hand on your waist",
+              "Use your right hand to swing wide in a circle by your right side",
+              "Swing high and wide for 20 repetitions",
+              "Return your right hand to your waist",
+              "Put your left hand on your waist, right hand in place",
+              "Use your left hand to swing wide in a circle by your left side",
+              "Swing high and wide for 20 repetitions, matching the right side motion",
+              "Repeat alternating sides"
+            ],
+            reps: "Start with 20 repetitions per side. Build strength to reach 70-100 repetitions per side"
+          }
+        ]
+      }
+    };
+
+    function renderWeeks() {
+      const selector = document.getElementById('weekSelector');
+      Object.keys(exercises).forEach((key, index) => {
+        const btn = document.createElement('button');
+        btn.className = `week-btn ${index === 0 ? 'active' : ''}`;
+        btn.textContent = `Week ${exercises[key].week}`;
+        btn.onclick = () => selectWeek(key);
+        selector.appendChild(btn);
+      });
+    }
+
+    function selectWeek(weekKey) {
+      document.querySelectorAll('.week-btn').forEach((btn, i) => {
+        btn.classList.toggle('active', Object.keys(exercises)[i] === weekKey);
+      });
+      
+      const week = exercises[weekKey];
+      const content = document.getElementById('exerciseContent');
+      
+      let html = `<h2>${week.title}</h2>`;
+      
+      week.exercises.forEach(ex => {
+        html += `
+          <div class="exercise-item">
+            <div class="exercise-title">Exercise ${ex.num}: ${ex.name}</div>
+            <ul class="exercise-instructions">
+              ${ex.instructions.map(inst => `<li>${inst}</li>`).join('')}
+            </ul>
+            <div class="rep-guide">📊 Repetitions: ${ex.reps}</div>
+          </div>
+        `;
+      });
+      
+      content.innerHTML = html;
+    }
+
+    renderWeeks();
+    selectWeek('week1');
+  </script>
+</body>
+</html>
