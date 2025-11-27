@@ -5,16 +5,46 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Global Golden Vessels of Mercy (GGVM)</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    /* Styling for the TextType area */
+    #ggvm-texttype-root { display: flex; justify-content: center; }
+    /* Center the header content and TextType vertically and horizontally */
+    header.hero { display: flex; align-items: center; justify-content: center; flex-direction: column; text-align: center; min-height: 60vh; gap: 1rem; }
+    header.hero .hero-content { display: flex; flex-direction: column; align-items: center; gap: 0.75rem; }
+    #ggvm-texttype-root .ggvm-texttype {
+      max-width: 900px;
+      width: 100%;
+      padding: 20px 24px;
+      display: flex;
+      text-align: center; 
+      align-items: center;
+      gap: 10px;
+      font-weight: bold;
+      font-size: 1.125rem; /* larger */
+      color: #ffffff;
+      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    }
+    #ggvm-texttype-root .ggvm-texttype img { width: 56px; height: 56px; object-fit: contain; }
+    #ggvm-texttype-root .ggvm-texttype .ggvm-lines { flex: 1; }
+    #ggvm-texttype-root .ggvm-texttype .ggvm-lines span { display: inline-block; }
+  </style>
 </head>
 <body>
   <header class="hero">
     <div class="hero-content">
       <img src="assets/logos/logo-1.png" alt="GGVM Logo" class="hero-logo" />
       <h1 class="hero-title">Global Golden Vessels of Mercy</h1>
-      <p class="hero-subtitle">Empowering lives, inspiring hope, building a golden community.</p>
-      <a href="#main-sections" class="cta-btn">Explore GGVM</a>
+      <p class="hero-subtitle">Empowering lives · inspiring hope · building a golden community.</p>
+      
+      <a href="#main-sections" class="cta-btn">Explore GGVM</a> 
+      
     </div>
+      <!-- Mount point for the TextType React component -->
+  <div id="ggvm-texttype-root" class="max-w-4xl mx-auto px-4 mt-6"></div>
+
   </header>
+
+  <!-- (Interactive React mount removed; site remains static) -->
 
   <main>
     <section class="pillars">
@@ -74,6 +104,40 @@
   <footer class="site-footer">
     <p>&copy; 2025 Global Golden Vessels of Mercy</p>
   </footer>
+  <!-- CDN libraries: React, ReactDOM, and GSAP (required by the UMD component) -->
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+  <!-- Browser-ready TextType component -->
+  <script src="assets/js/texttype.umd.js"></script>
+
+  <script>
+    (function () {
+      const root = document.getElementById('ggvm-texttype-root');
+      if (!root) return;
+      if (!window.TextType || !window.React || !window.ReactDOM) return;
+
+      const lines = [
+        'Welcome to GGVM — Global Golden Vessels of Mercy',
+        'Inspiring hope, spreading compassion, equipping believers',
+        'Daily devotionals, motivation, and practical exercises',
+        'Join a community that cares and serves',
+        'Bold and balabala'
+      ];
+
+      const props = {
+        text: lines,
+        typingSpeed: 40,
+        deletingSpeed: 25,
+        pauseDuration: 1800,
+        className: 'ggvm-texttype',
+      };
+
+      ReactDOM.createRoot(root).render(React.createElement(window.TextType, props));
+    })();
+  </script>
+
   <script src="script.js"></script>
 </body>
 </html>
