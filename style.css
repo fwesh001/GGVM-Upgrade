@@ -232,9 +232,31 @@ body {
 }
 
 @media (max-width: 700px) {
-   .hero-title { font-size: 1.5rem; }
-   .pillars-grid, .grid { flex-direction: column; display: block; }
-   .pillar-card, .section-card { min-width: 90vw; max-width: 98vw; }
+    .hero-title { font-size: 1.5rem; }
+    /* Stack pillar cards vertically with consistent spacing */
+    .pillars-grid {
+       display: flex;
+       flex-direction: column;
+       gap: 16px;
+       align-items: stretch;
+    }
+    /* Make the sections grid a single-column responsive layout */
+    .grid {
+       display: grid;
+       grid-template-columns: 1fr;
+       gap: 16px;
+       margin-top: 20px;
+       padding: 0 12px;
+       box-sizing: border-box;
+    }
+    .pillar-card, .section-card {
+       width: 100%;
+       min-width: 0;
+       max-width: 100%;
+       padding: 16px;
+       box-sizing: border-box;
+    }
+    .section-card { font-size: 1rem; }
 }
 
 @keyframes fadeInUp {
