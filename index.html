@@ -54,13 +54,14 @@
       .hero-subtitle { font-size: 0.85rem; }
       .cta-btn { padding: 8px 10px; font-size: 0.9rem; }
     }
+
   </style>
 </head>
 <body>
   <header class="hero">
     <div class="hero-content">
       <img src="assets/logos/logo-1.png" alt="GGVM Logo" class="hero-logo" />
-      <h1 class="hero-title">Global Golden Vessels of Mercy</h1>
+      <div id="ggvm-shiny-root" class="hero-title" data-default="Global Golden Vessels of Mercy"></div>
       <p class="hero-subtitle">Empowering lives · inspiring hope · building a golden community.</p>
       
       <a href="#main-sections" class="cta-btn">Explore GGVM</a> 
@@ -133,38 +134,9 @@
     <p>&copy; 2025 Global Golden Vessels of Mercy</p>
     <p class="github">Designed by Zabdiel</p>
   </footer>
-  <!-- CDN libraries: React, ReactDOM, and GSAP (required by the UMD component) -->
-  <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
-  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-
-  <!-- Browser-ready TextType component -->
-  <script src="assets/js/texttype.umd.js"></script>
-
-  <script>
-    (function () {
-      const root = document.getElementById('ggvm-texttype-root');
-      if (!root) return;
-      if (!window.TextType || !window.React || !window.ReactDOM) return;
-
-      const lines = [
-        'Welcome to GGVM — Global Golden Vessels of Mercy',
-        'Inspiring hope, spreading compassion, equipping believers',
-        'Daily devotionals, motivation, and practical exercises',
-        'Join a community that cares and serves',
-      ];
-
-      const props = {
-        text: lines,
-        typingSpeed: 40,
-        deletingSpeed: 25,
-        pauseDuration: 1800,
-        className: 'ggvm-texttype',
-      };
-
-      ReactDOM.createRoot(root).render(React.createElement(window.TextType, props));
-    })();
-  </script>
+  <!-- DOM-only renderers for TextType and ShinyText (no React dependency) -->
+  <script src="assets/js/texttype.dom.js"></script>
+  <script src="assets/js/shinytext.dom.js"></script>
 
   <script src="script.js"></script>
 </body>
