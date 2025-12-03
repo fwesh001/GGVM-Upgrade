@@ -31,7 +31,7 @@ To set up GGVM locally, follow these steps:
 
 ```bash
 # Clone the repository
-git clone https://github.com/fwesh001/GGVM.git
+git clone https://github.com/fwesh001/GGVM-Upgrade.git
 
 # Navigate to the project folder
 cd GGVM
