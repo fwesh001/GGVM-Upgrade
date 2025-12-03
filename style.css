@@ -281,11 +281,10 @@ body {
    -webkit-background-clip: text;
    background-clip: text;
    color: transparent;
-   animation: shine 12s linear infinite;
+   animation: shine var(--shine-duration, 100s) linear infinite;
 }
 @keyframes shine {
    0% { background-position: 200% 0; }
-   8% { background-position: -200% 0; }
    100% { background-position: -200% 0; }
 }
-.shiny-text.disabled { opacity: 0.65; filter: grayscale(30%); }
+.shiny-text.disabled { opacity: 1.65; filter: grayscale(30%); }
